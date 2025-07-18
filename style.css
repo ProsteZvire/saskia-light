@@ -28,6 +28,7 @@ body {
   text-align: center;
   top: 50%;
   transform: translateY(-50%);
+  perspective: 1000px; /* ⬅️ Přidáno */
 }
 
 .box {
@@ -39,6 +40,7 @@ body {
   border-radius: 20px;
   cursor: pointer;
   overflow: hidden;
+  transform-style: preserve-3d; /* ⬅️ DŮLEŽITÉ */
 }
 
 .lid {
