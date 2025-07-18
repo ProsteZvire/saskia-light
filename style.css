@@ -84,6 +84,17 @@ body {
   opacity: 1;
 }
 
+/* --- NEW: Hide text and signature by default --- */
+.text,
+.signature {
+  display: none;
+}
+
+.box.open ~ .text,
+.box.open ~ .signature {
+  display: block;
+}
+
 .text {
   margin-top: 40px;
   font-size: 18px;
@@ -98,4 +109,3 @@ body {
   font-style: italic;
   color: #cccccc;
 }
-
