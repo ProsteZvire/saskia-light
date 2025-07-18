@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Saskia-light</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="container">
+    <div class="box" onclick="openBox()">
+      <div class="lid"></div>
+      <div class="light" id="light"></div>
+    </div>
+    <p class="text">Až se budeš cítit sama, tohle malé světlo ti připomene, že jsi důvod, proč vůbec něco září.</p>
+    <p class="signature">Tvůj strážce světla</p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
