@@ -1,4 +1,8 @@
-function openBox() {
-  document.querySelector('.box').classList.toggle('open');
-}
+let isOpened = false;
 
+function openBox() {
+  if (isOpened) return;
+
+  document.querySelector('.box').classList.add('open');
+  isOpened = true;
+}
