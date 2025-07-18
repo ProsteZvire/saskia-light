@@ -1,11 +1,100 @@
-let isOpened = false;
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+}
 
-function openBox() {
-  if (isOpened) return;
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://raw.githubusercontent.com/claudymarley/saskia-light/main/stars-bg.png') repeat;
+  z-index: 0;
+  animation: moveStars 100s linear infinite;
+}
 
-  document.getElementById('lid').style.transform = 'rotateX(-120deg)';
-  document.getElementById('light').style.opacity = '1';
-  document.getElementById('message').style.opacity = '1';
+@keyframes moveStars {
+  from {background-position: 0 0;}
+  to {background-position: -10000px 5000px;}
+}
 
-  isOpened = true;
+.container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.box {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  background: #111;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 75px;
+  background: #222;
+  border-bottom: 5px solid #444;
+  border-radius: 20px 20px 0 0;
+  transform-origin: bottom;
+  transition: transform 1s ease;
+  z-index: 2;
+}
+
+.box.open .lid {
+  transform: rotateX(150deg);
+}
+
+.light {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #fffacd, #ffcc70, #ff9900);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  box-shadow: 0 0 20px 10px rgba(255, 200, 100, 0.6);
+  animation: flicker 1s infinite;
+}
+
+@keyframes flicker {
+  0% {opacity: 0.9;}
+  50% {opacity: 1;}
+  100% {opacity: 0.8;}
+}
+
+.box.open .light {
+  opacity: 1;
+}
+
+.text {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #ffddaa;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signature {
+  margin-top: 20px;
+  font-style: italic;
+  color: #cccccc;
 }
