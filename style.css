@@ -51,13 +51,13 @@ body {
   border-bottom: 5px solid #444;
   border-radius: 20px 20px 0 0;
   transform-origin: bottom;
-  transform: rotateX(0deg); /* ✅ výchozí zavřený stav */
+  transform: rotateX(0deg); /* ✅ ZAVŘENO na začátku */
   transition: transform 1s ease;
   z-index: 2;
 }
 
-.box.open .lid {
-  transform: rotateX(150deg); /* ✅ otevřený stav */
+.box.opened .lid {
+  transform: rotateX(150deg); /* ✅ OTEVŘENO při .opened */
 }
 
 .light {
@@ -69,7 +69,7 @@ body {
   height: 40px;
   background: radial-gradient(circle, #fffacd, #ffcc70, #ff9900);
   border-radius: 50%;
-  opacity: 0; /* ✅ výchozí stav skryté světlo */
+  opacity: 0; /* ✅ Zhasnuté na začátku */
   transition: opacity 1s ease-in-out;
   box-shadow: 0 0 20px 10px rgba(255, 200, 100, 0.6);
   animation: flicker 1s infinite;
@@ -81,18 +81,18 @@ body {
   100% {opacity: 0.8;}
 }
 
-.box.open .light {
-  opacity: 1; /* ✅ zapnutí světla po otevření */
+.box.opened .light {
+  opacity: 1;
 }
 
 #text-block {
-  opacity: 0;
+  opacity: 0; /* ✅ skryto */
   transition: opacity 1s ease-in-out;
   pointer-events: none;
 }
 
 #text-block.visible {
-  opacity: 1;
+  opacity: 1; /* ✅ viditelné po otevření */
 }
 
 .text {
@@ -109,4 +109,3 @@ body {
   font-size: 14px;
   color: #ffaa88;
 }
-
