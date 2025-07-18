@@ -1,13 +1,11 @@
+let isOpened = false;
+
 function openBox() {
-  const box = document.getElementById('box');
-  const textBlock = document.getElementById('text-block');
+  if (isOpened) return;
 
-  if (!box.classList.contains('opened')) {
-    box.classList.add('opened');
+  document.getElementById('lid').style.transform = 'rotateX(-120deg)';
+  document.getElementById('light').style.opacity = '1';
+  document.getElementById('message').style.opacity = '1';
 
-    // Po 1 sekundě (až se otevře víko), zobraz text
-    setTimeout(() => {
-      textBlock.classList.add('visible');
-    }, 1000);
-  }
+  isOpened = true;
 }
