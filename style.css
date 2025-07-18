@@ -59,6 +59,10 @@ body {
   z-index: 2;
 }
 
+.box.open .lid {
+  transform: rotateX(-120deg);
+}
+
 .light {
   width: 40px;
   height: 40px;
@@ -82,15 +86,25 @@ body {
   100% {opacity: 0.8;}
 }
 
+.box.open .light {
+  opacity: 1;
+}
+
 .message {
   margin-top: 40px;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 2s;
   max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   font-size: 18px;
   color: #ffddaa;
+}
+
+.box.open ~ .message {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .signature {
