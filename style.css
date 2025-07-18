@@ -51,12 +51,13 @@ body {
   border-bottom: 5px solid #444;
   border-radius: 20px 20px 0 0;
   transform-origin: bottom;
+  transform: rotateX(0deg); /* ✅ výchozí zavřený stav */
   transition: transform 1s ease;
   z-index: 2;
 }
 
 .box.open .lid {
-  transform: rotateX(150deg);
+  transform: rotateX(150deg); /* ✅ otevřený stav */
 }
 
 .light {
@@ -68,7 +69,7 @@ body {
   height: 40px;
   background: radial-gradient(circle, #fffacd, #ffcc70, #ff9900);
   border-radius: 50%;
-  opacity: 0;
+  opacity: 0; /* ✅ výchozí stav skryté světlo */
   transition: opacity 1s ease-in-out;
   box-shadow: 0 0 20px 10px rgba(255, 200, 100, 0.6);
   animation: flicker 1s infinite;
@@ -81,6 +82,16 @@ body {
 }
 
 .box.open .light {
+  opacity: 1; /* ✅ zapnutí světla po otevření */
+}
+
+#text-block {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+#text-block.visible {
   opacity: 1;
 }
 
@@ -94,7 +105,8 @@ body {
 }
 
 .signature {
-  margin-top: 20px;
-  font-style: italic;
-  color: #cccccc;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffaa88;
 }
+
