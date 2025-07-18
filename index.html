@@ -1,22 +1,58 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saskia-light</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Small Box Example</title>
+  <style>
+    #box {
+      width: 150px;
+      height: 100px;
+      background: #f4f4f4;
+      border: 2px solid #333;
+      margin: 40px auto;
+      display: none; /* Box is hidden by default */
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .light {
+      width: 20px;
+      height: 20px;
+      background: yellow;
+      border-radius: 50%;
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 15px 3px yellow;
+      display: none;
+    }
+    #showBoxBtn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="container">
-    <div class="box" onclick="openBox()">
-      <div class="lid"></div>
-      <div class="light" id="light"></div>
-    </div>
-    <p class="text">Až se budeš cítit sama, tohle malé světlo ti připomene, že jsi důvod, proč vůbec něco září.</p>
-    <p class="signature">Tvůj strážce světla</p>
+  <button id="showBoxBtn">Open Box</button>
+  <div id="box">
+    <div class="light"></div>
+    <div id="boxText">Hello, this is your box!</div>
   </div>
-  <script src="script.js"></script>
+  <script>
+    const showBoxBtn = document.getElementById('showBoxBtn');
+    const box = document.getElementById('box');
+    const light = document.querySelector('.light');
+
+    showBoxBtn.addEventListener('click', function() {
+      box.style.display = 'flex'; // Show the box
+      light.style.display = 'block'; // Show the light
+      showBoxBtn.style.display = 'none'; // Hide the button (optional)
+    });
+  </script>
 </body>
 </html>
 
